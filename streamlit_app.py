@@ -8,6 +8,7 @@ import requests
 from streamlit.logger import get_logger
 
 logger = get_logger(__name__)
+
 st.set_page_config(layout="wide")
 st.title("Iterable RAG Demo")
 
