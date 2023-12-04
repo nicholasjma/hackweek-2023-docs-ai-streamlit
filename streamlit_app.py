@@ -2,6 +2,7 @@ import json
 import os
 
 import streamlit as st
+import streamlit_scrollable_textbox as stx
 import requests
 
 from streamlit.logger import get_logger
@@ -19,8 +20,8 @@ def generate_response(input_text):
     logger.info(r.status_code)
     response = r.json()
     logger.info(r.status_code, response)
-    st.text(response["result"])
-    st.text(json.dumps(response))
+    stx.scrollable_textbox(response["result"])
+    stx.scrollable_textbox(json.dumps(response))
 
 
 with st.form("my_form"):
