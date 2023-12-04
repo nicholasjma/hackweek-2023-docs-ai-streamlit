@@ -20,7 +20,11 @@ def generate_response(input_text):
     logger.info(r.status_code)
     response = r.json()
     logger.info(r.status_code, response)
-    stx.scrollableTextbox(response["result"], height=300)
+    markdown = response["result"]
+    markdown += "\n\n"
+    for n, source in enumerate(response["sources"], start=1):
+        markdown += f"{n}. [{source['page_title']}]({source['url']})\n\n"
+    stx.scrollableTextbox(markdown, height=300)
     stx.scrollableTextbox(json.dumps(response), height=500)
 
 
