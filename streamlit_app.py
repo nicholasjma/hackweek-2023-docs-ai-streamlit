@@ -19,9 +19,7 @@ password = os.environ["API_PASSWORD"]
 
 def generate_response(input_text):
     r = requests.get(url, auth=(username, password), json={"query": input_text})
-    logger.info(r.status_code)
     response = r.json()
-    logger.info(r.status_code, response)
     markdown = response["result"]
     markdown += "\n\n## Sources\n\n"
     for n, source in enumerate(response["sources"], start=1):
