@@ -27,7 +27,7 @@ def generate_response(input_text):
     for n, source in enumerate(response["sources"], start=1):
         markdown += f"{n}. [{source['page_title']}]({source['url']})\n\n"
     st.write(markdown)
-    st.write("## Search Results"\n\n")
+    st.write("## Search Results\n\n")
     for n, (search_result, score) in enumerate(response["search_results"], start=1):
         st.write(f" {n}. (score {score}) {search_result['page_title']}")
         st.write(search_result["page_content"][:20])
