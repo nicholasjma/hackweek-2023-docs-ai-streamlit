@@ -30,9 +30,9 @@ def generate_response(input_text):
     st.write("## Search Results\n\n")
     for n, search_result in enumerate(response["search_results"], start=1):
         st.write(
-            f" {n}. (score {search_result['score']}) {search_result['page_title']}"
+            f" {n}. (score {search_result['score']:.2f}) ({search_result['page_title']})[{search_result['source']}]"
         )
-        st.write(search_result["page_content"][:20])
+        st.write(search_result["page_content"][:200])
 
 
 with st.form("my_form"):
