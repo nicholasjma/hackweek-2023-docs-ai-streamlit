@@ -4,6 +4,9 @@ import os
 import streamlit as st
 import requests
 
+from streamlit.logger import get_logger
+
+logger = get_logger(__name__)
 st.title("Iterable RAG Demo")
 
 url = "https://hackweek-2023-docs-ai-54bd3e77ac5b.herokuapp.com/query"
@@ -13,9 +16,9 @@ password = os.environ["API_PASSWORD"]
 
 def generate_response(input_text):
     r = requests.get(url, auth=(username, password), json={"query": input_text})
-    print(r.status_code)
+    logger(r.status_code)
     response = r.json()
-    print(r.status_code, response)
+    logger(r.status_code, response)
     st.text(response["result"])
     st.text(json.dumps(response))
 
