@@ -28,8 +28,8 @@ def generate_response(input_text):
         markdown += f"{n}. [{source['page_title']}]({source['url']})\n\n"
     st.write(markdown)
     st.write("## Search Results"\n\n")
-    for n, search_result in enumerate(response["search_results"], start=1):
-        st.write(f" {n}. {search_result['page_title']}")
+    for n, (search_result, score) in enumerate(response["search_results"], start=1):
+        st.write(f" {n}. (score {score}) {search_result['page_title']}")
         st.write(search_result["page_content"][:20])
 
 with st.form("my_form"):
