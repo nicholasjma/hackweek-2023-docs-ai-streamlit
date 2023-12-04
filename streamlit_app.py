@@ -17,6 +17,13 @@ username = os.environ["API_USERNAME"]
 password = os.environ["API_PASSWORD"]
 
 
+def trim_to_space(s: str, max_len: int = 400):
+    if len(s) < max_len:
+        return s
+    else:
+        return s[:max_len].rsplit(" ", 1)[0] + "..."
+
+
 def generate_response(input_text):
     with st.spinner(text="Reticulating splines...", cache=False):
         r = requests.get(url, auth=(username, password), json={"query": input_text})
@@ -31,12 +38,12 @@ def generate_response(input_text):
         st.write(
             f" {n}. (score {search_result['score']:.2f}) [{search_result['page_title']}]({search_result['source']})"
         )
-        st.write(search_result["page_content"].replace("\n", " ")[:400])
+        st.write(search_result["page_content"][:400])
 
 
 with st.form("my_form"):
     text = st.text_area(
-        "Enter text:",
+        "Enter query:",
         "How do I build a churn model using predictive goals? How would I create a campaign to "
         "target likely to churn users?",
     )
