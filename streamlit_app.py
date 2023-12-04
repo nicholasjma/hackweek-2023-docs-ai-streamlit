@@ -29,7 +29,9 @@ def generate_response(input_text):
     st.write(markdown)
     st.write("## Search Results\n\n")
     for n, search_result in enumerate(response["search_results"], start=1):
-        st.write(f" {n}. (score {search_result['score']}) {search_result['page_title']}")
+        st.write(
+            f" {n}. (score {search_result['score']}) {search_result['page_title']}"
+        )
         st.write(search_result["page_content"][:20])
 
 
