@@ -1,4 +1,5 @@
 import json
+import os
 
 import streamlit as st
 import requests
@@ -6,8 +7,8 @@ import requests
 st.title("Iterable RAG Demo")
 
 url = "https://hackweek-2023-docs-ai-54bd3e77ac5b.herokuapp.com/query"
-username = st.sidebar.text_input("API Username", type="default")
-password = st.sidebar.text_input("API Password", type="password")
+username = os.environ("API_USERNAME")
+password = os.environ("API_PASSWORD")
 
 
 def generate_response(input_text):
@@ -24,7 +25,5 @@ with st.form("my_form"):
         "target likely to churn users?",
     )
     submitted = st.form_submit_button("Submit")
-    if not username or not password:
-        st.warning("Please enter your username and password!", icon="⚠")
-    elif submitted:
+    if submitted:
         generate_response(text)
