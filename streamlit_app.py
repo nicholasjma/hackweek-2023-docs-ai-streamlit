@@ -30,7 +30,7 @@ def generate_response(input_text):
         st.write(
             f" {n}. (score {search_result['score']:.2f}) [{search_result['page_title']}]({search_result['source']})"
         )
-        st.write(search_result["page_content"][:400])
+        st.write(search_result["page_content"].replace("\n", " ")[:400])
 
 
 with st.form("my_form"):
