@@ -10,7 +10,7 @@ from streamlit.logger import get_logger
 logger = get_logger(__name__)
 
 st.set_page_config(layout="wide")
-st.title("Iterable RAG Demo")
+st.title("Iterable Docs AI Demo")
 
 url = "https://hackweek-2023-docs-ai-54bd3e77ac5b.herokuapp.com/query"
 username = os.environ["API_USERNAME"]
@@ -43,7 +43,7 @@ def generate_response(input_text):
 
 with st.form("my_form"):
     text = st.text_area(
-        "Enter query:",
+        "How can Iterable assist you today?",
         "How do I build a churn model using predictive goals? How would I create a campaign to "
         "target likely to churn users?",
     )
