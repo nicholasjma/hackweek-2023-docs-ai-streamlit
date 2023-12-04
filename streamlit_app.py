@@ -7,8 +7,8 @@ import requests
 st.title("Iterable RAG Demo")
 
 url = "https://hackweek-2023-docs-ai-54bd3e77ac5b.herokuapp.com/query"
-username = os.environ("API_USERNAME")
-password = os.environ("API_PASSWORD")
+username = os.environ["API_USERNAME"]
+password = os.environ["API_PASSWORD"]
 
 
 def generate_response(input_text):
