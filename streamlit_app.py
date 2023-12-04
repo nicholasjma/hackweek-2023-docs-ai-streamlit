@@ -15,8 +15,6 @@ password = os.environ["API_PASSWORD"]
 
 
 def generate_response(input_text):
-    logger.info(username)
-    logger.info(password)
     r = requests.get(url, auth=(username, password), json={"query": input_text})
     logger.info(r.status_code)
     response = r.json()
