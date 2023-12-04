@@ -20,8 +20,8 @@ def generate_response(input_text):
     logger.info(r.status_code)
     response = r.json()
     logger.info(r.status_code, response)
-    stx.scrollable_textbox(response["result"])
-    stx.scrollable_textbox(json.dumps(response))
+    stx.scrollableTextbox(response["result"])
+    stx.scrollableTextbox(json.dumps(response))
 
 
 with st.form("my_form"):
