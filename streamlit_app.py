@@ -18,7 +18,8 @@ password = os.environ["API_PASSWORD"]
 
 
 def generate_response(input_text):
-    r = requests.get(url, auth=(username, password), json={"query": input_text})
+    with st.spinner(text="Reticulating splines...", *, cache=False):
+        r = requests.get(url, auth=(username, password), json={"query": input_text})
     response = r.json()
     markdown = response["result"]
     markdown += "\n\n## Sources\n\n"
