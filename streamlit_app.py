@@ -8,6 +8,28 @@ from streamlit.logger import get_logger
 logger = get_logger(__name__)
 
 st.set_page_config(layout="wide")
+
+# Remove whitespace from the top of the page and sidebar
+st.markdown(
+    """
+        <style>
+               .css-18e3th9 {
+                    padding-top: 0rem;
+                    padding-bottom: 10rem;
+                    padding-left: 5rem;
+                    padding-right: 5rem;
+                }
+               .css-1d391kg {
+                    padding-top: 3.5rem;
+                    padding-right: 1rem;
+                    padding-bottom: 3.5rem;
+                    padding-left: 1rem;
+                }
+        </style>
+        """,
+    unsafe_allow_html=True,
+)
+
 st.image(
     "https://iterable.com/wp-content/uploads/2020/02/Iterable_Logo_01.gif", width=200
 )
