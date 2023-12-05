@@ -54,7 +54,7 @@ def generate_response(input_text):
     with st.expander("Search Results", expanded=False):
         for n, search_result in enumerate(response["search_results"], start=1):
             st.write(
-                f" {n}. (score {search_result['score']:.2f}) [{search_result['page_title']}]({search_result['source']})"
+                f"* (score {search_result['score']:.2f}) [{search_result['page_title']}]({search_result['source']})"
             )
             st.write(search_result["page_content"][:400])
 
