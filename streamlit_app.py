@@ -1,4 +1,5 @@
 import os
+import time
 
 import streamlit as st
 import requests
@@ -55,6 +56,16 @@ def generate_response(input_text):
             f" {n}. (score {search_result['score']:.2f}) [{search_result['page_title']}]({search_result['source']})"
         )
         st.write(search_result["page_content"][:400])
+    time.sleep(3)
+
+    js = """
+    <script>
+        var body = window.parent.document.querySelector(".main");
+        console.log(body);
+        body.scrollTop = 0;
+    </script>
+    """
+    st.markdown(js, unsafe_allow_html=True)
 
 
 with st.form("my_form"):
