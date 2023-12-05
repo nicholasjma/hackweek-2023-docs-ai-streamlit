@@ -26,7 +26,7 @@ st.markdown(
 )
 
 st.image(
-    "https://iterable.com/wp-content/uploads/2020/02/Iterable_Logo_01.gif", width=200
+    "https://iterable.com/wp-content/uploads/2020/02/Iterable_Logo_01.gif", width=50
 )
 
 url = "https://hackweek-2023-docs-ai-54bd3e77ac5b.herokuapp.com/query"
