@@ -8,7 +8,6 @@ from streamlit.logger import get_logger
 logger = get_logger(__name__)
 
 st.set_page_config(layout="wide")
-st.title("Iterable Docs AI Demo")
 st.image(
     "https://iterable.com/wp-content/uploads/2020/02/Iterable_Logo_01.gif", width=200
 )
