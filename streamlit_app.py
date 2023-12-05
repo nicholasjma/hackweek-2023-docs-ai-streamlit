@@ -66,6 +66,6 @@ with st.form("my_form"):
         "How do I build a churn model using predictive goals? How would I create a campaign to "
         "target likely to churn users?",
     )
-    submitted = st.form_submit_button("Submit")
+    submitted = containers[1].form_submit_button("Submit")
     if submitted:
         generate_response(text)
