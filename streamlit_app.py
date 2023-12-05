@@ -46,7 +46,7 @@ def generate_response(input_text):
     markdown = response["result"]
     markdown += "\n\n*Sources*\n\n"
     for n, source in enumerate(response["sources"], start=1):
-        markdown += f"[{source['page_title']}]({source['url']})  \n"
+        markdown += f"[{source['page_title']}]({source['source']})  \n"
     container.write(markdown)
     with st.expander("Search Results", expanded=False):
         for n, search_result in enumerate(response["search_results"], start=1):
