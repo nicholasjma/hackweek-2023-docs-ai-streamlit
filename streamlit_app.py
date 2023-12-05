@@ -39,7 +39,7 @@ def trim_to_space(s: str, max_len: int = 400):
 
 
 def generate_response(input_text):
-    with st.spinner(text="Reticulating splines...", cache=False):
+    with container.spinner(text="Reticulating splines...", cache=False):
         r = requests.get(url, auth=(username, password), json={"query": input_text})
     response = r.json()
     container = st.container(border=True)
@@ -57,15 +57,15 @@ def generate_response(input_text):
 
 
 with st.form("my_form"):
-    containers = st.columns([0.01, 0.99], gap="small")
-    containers[0].image(
-        "https://iterable.com/wp-content/uploads/2020/02/Iterable_Logo_01.gif", width=75
-    )
-    text = containers[1].text_area(
+    with st.sidebar:
+        st.image(
+            "https://iterable.com/wp-content/uploads/2020/02/Iterable_Logo_01.gif", width=75
+        )
+    text = st.text_area(
         "How can Iterable assist you today?",
         "How do I build a churn model using predictive goals? How would I create a campaign to "
         "target likely to churn users?",
     )
-    submitted = containers[1].form_submit_button("Submit")
+    submitted = st.form_submit_button("Submit")
     if submitted:
         generate_response(text)
