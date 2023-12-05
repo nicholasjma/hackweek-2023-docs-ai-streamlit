@@ -57,7 +57,7 @@ def generate_response(input_text):
 
 
 with st.form("my_form"):
-    containers = st.columns([0.1, 0.9], gap="small")
+    containers = st.columns([0.01, 0.99], gap="small")
     containers[0].image(
         "https://iterable.com/wp-content/uploads/2020/02/Iterable_Logo_01.gif", width=75
     )
@@ -66,6 +66,6 @@ with st.form("my_form"):
         "How do I build a churn model using predictive goals? How would I create a campaign to "
         "target likely to churn users?",
     )
-    submitted = containers[0].form_submit_button("Submit")
+    submitted = containers[1].form_submit_button("Submit")
     if submitted:
         generate_response(text)
