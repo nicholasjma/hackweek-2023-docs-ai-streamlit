@@ -51,15 +51,13 @@ def generate_response(input_text):
     for n, source in enumerate(response["sources"], start=1):
         markdown += f"{n}. [{source['page_title']}]({source['url']})\n\n"
     container.write(markdown)
-    container2 = st.container(border=True)
-    container2.write("## Search Results\n\n")
-    for n, search_result in enumerate(response["search_results"], start=1):
-        st.write(
-            f" {n}. (score {search_result['score']:.2f}) [{search_result['page_title']}]({search_result['source']})"
-        )
-        st.write(search_result["page_content"][:400])
-    time.sleep(1)
-    container.write("## a")
+    with st.expander("Search Results", expanded=False):
+        st.write("## Search Results\n\n")
+        for n, search_result in enumerate(response["search_results"], start=1):
+            st.write(
+                f" {n}. (score {search_result['score']:.2f}) [{search_result['page_title']}]({search_result['source']})"
+            )
+            st.write(search_result["page_content"][:400])
 
 
 with st.form("my_form"):
