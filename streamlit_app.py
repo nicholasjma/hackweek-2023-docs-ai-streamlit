@@ -27,8 +27,8 @@ st.markdown(
 
 
 url = "https://hackweek-2023-docs-ai-54bd3e77ac5b.herokuapp.com/query"
-username = os.environ["API_USERNAME"]
-password = os.environ["API_PASSWORD"]
+# username = os.environ["API_USERNAME"]
+# password = os.environ["API_PASSWORD"]
 
 
 def trim_to_space(s: str, max_len: int = 400):
@@ -66,6 +66,8 @@ st.image(
     width=75,
 )
 with st.form("my_form"):
+    username = st.text_input("Username")
+    password = st.text_input("Password", type="password")
     text = st.text_area(
         "How can Iterable assist you today?",
         "How do I build a churn model using predictive goals? How would I create a campaign to "
