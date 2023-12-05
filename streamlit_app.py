@@ -47,7 +47,7 @@ def generate_response(input_text):
     response = r.json()
     container = st.container(border=True)
     markdown = response["result"]
-    markdown += "\n\n### Sources\n\n"
+    markdown += "\n\n*Sources*\n\n"
     for n, source in enumerate(response["sources"], start=1):
         markdown += f"{n}. [{source['page_title']}]({source['url']})\n\n"
     container.write(markdown)
