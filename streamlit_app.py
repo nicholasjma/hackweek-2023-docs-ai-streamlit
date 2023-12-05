@@ -40,7 +40,7 @@ def trim_to_space(s: str, max_len: int = 400):
 
 def generate_response(input_text):
     with st.spinner(text="Reticulating splines...", cache=False):
-        r = requests.get(url, auth=(username, password), json={"query": input_text})
+        r = requests.get(url, auth=(username, password), json={"query": input_text}, timeout=120)
     response = r.json()
     container = st.container(border=True)
     markdown = response["result"]
