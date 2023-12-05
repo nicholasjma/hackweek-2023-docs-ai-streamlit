@@ -57,7 +57,7 @@ def generate_response(input_text):
             f" {n}. (score {search_result['score']:.2f}) [{search_result['page_title']}]({search_result['source']})"
         )
         st.write(search_result["page_content"][:400])
-    container.write("")
+    container.write("1234")
 
 
 with st.form("my_form"):
