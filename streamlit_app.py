@@ -45,17 +45,19 @@ def generate_response(input_text):
     with st.spinner(text="Reticulating splines...", cache=False):
         r = requests.get(url, auth=(username, password), json={"query": input_text})
     response = r.json()
+    container = st.container(border=True)
     markdown = response["result"]
     markdown += "\n\n## Sources\n\n"
     for n, source in enumerate(response["sources"], start=1):
         markdown += f"{n}. [{source['page_title']}]({source['url']})\n\n"
-    st.write(markdown)
+    container.write(markdown)
     st.write("## Search Results\n\n")
     for n, search_result in enumerate(response["search_results"], start=1):
         st.write(
             f" {n}. (score {search_result['score']:.2f}) [{search_result['page_title']}]({search_result['source']})"
         )
         st.write(search_result["page_content"][:400])
+    container.write("")
 
 
 with st.form("my_form"):
