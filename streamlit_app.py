@@ -57,10 +57,11 @@ def generate_response(input_text):
 
 
 with st.form("my_form"):
-    st.image(
+    containers = st.columns(2, gap="small")
+    containers[0].image(
         "https://iterable.com/wp-content/uploads/2020/02/Iterable_Logo_01.gif", width=75
     )
-    text = st.text_area(
+    text = containers[1].text_area(
         "How can Iterable assist you today?",
         "How do I build a churn model using predictive goals? How would I create a campaign to "
         "target likely to churn users?",
