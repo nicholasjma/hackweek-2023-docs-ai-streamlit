@@ -56,7 +56,7 @@ def generate_response(input_text):
             f" {n}. (score {search_result['score']:.2f}) [{search_result['page_title']}]({search_result['source']})"
         )
         st.write(search_result["page_content"][:400])
-    time.sleep(3)
+    time.sleep(0.25)
 
     js = """
     <script>
