@@ -51,14 +51,14 @@ def generate_response(input_text):
     if response["sources"]:
         markdown += "\n\n*Sources*\n\n"
     for n, source in enumerate(response["sources"], start=1):
-        markdown += f"[{source['page_title']}]({source['source']})  \n"
+        markdown += f"[{source['pageTitle']}]({source['source']})  \n"
     container.write(markdown)
     with st.expander("Search Results", expanded=False):
-        for n, search_result in enumerate(response["search_results"], start=1):
+        for n, search_result in enumerate(response["searchResults"], start=1):
             st.write(
-                f"{n}. (score {search_result['score']:.2f}) (origin {search_result.get('origin')}) [{search_result['page_title']}]({search_result['source']})"
+                f"{n}. (score {search_result['score']:.2f}) (origin {search_result.get('origin')}) [{search_result['pageTitle']}]({search_result['source']})"
             )
-            st.write(search_result["page_content"][:400])
+            st.write(search_result["pageContent"][:400])
 
 
 st.image(
